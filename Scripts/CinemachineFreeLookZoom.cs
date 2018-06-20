@@ -1,5 +1,23 @@
-﻿using System;
+﻿#define CM_2_1_10_OR_EARLIER // comment this out for later versions of Cinemachine
+
+using System;
 using UnityEngine;
+
+/// <summary>
+/// Zooms a CinemachineFreeLook camera in or out based on Mouse ScrollWheel input
+/// </summary>
+/// <seealso cref="https://forum.unity.com/threads/cinemachine-how-to-add-zoom-control-to-freelook-camera.505541/#post-3510212"/>
+/// <remarks>
+/// This code is modified from a post in the Unity forums:
+/// https://forum.unity.com/threads/cinemachine-how-to-add-zoom-control-to-freelook-camera.505541/#post-3510212
+/// From the author, @Gregoryl
+/// I've made a version of the FreeLookZoom script that's compatible with CM 2.1.10 and Unity 2017. 
+/// However, it's a little different: Once you add it to your FreeLook, you have to use the FreeLookZoom 
+/// fields to define the original orbits, the FreeLook orbits themselves will be always overwritten.
+/// It works, though.
+/// </remarks>
+/// 
+
 
 namespace Cinemachine
 {
@@ -19,7 +37,7 @@ namespace Cinemachine
         public float maxScale = 1;
 
         [Tooltip("The Vertical axis.  Value is 0..1.  How much to scale the orbits")]
-#if true // make this true for CM 2.1.10 and earlier, false otherwise
+#if CM_2_1_10_OR_EARLIER
         public AxisState zAxis = new AxisState(50f, 0.1f, 0.1f, 1, "Mouse ScrollWheel", false);
 #else
         [AxisStateProperty]

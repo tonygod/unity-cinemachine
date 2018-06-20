@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using Cinemachine;
 
+/// <summary>
+/// Component that exposes methods for enabling and disabling CinemachineFreeLook Input
+/// </summary>
+/// <seealso cref="https://forum.unity.com/threads/disable-freelook-input.536999/#post-3538277"/>
 public class CinemachineInputHandler : MonoBehaviour
 {
     private CinemachineCore.AxisInputDelegate DefaultAxisInput;
@@ -16,7 +20,6 @@ public class CinemachineInputHandler : MonoBehaviour
     {
         return 0f;
     }
-
 
     public void DisableInput()
     {
